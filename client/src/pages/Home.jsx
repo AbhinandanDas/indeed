@@ -1,5 +1,7 @@
 import Header from "../components/Header";
 import { Box,Typography,Button,styled} from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { routePath } from "../routes/route";
 
 const BoxComponent = styled(Box)({
     display : 'flex',
@@ -12,6 +14,7 @@ const BoxComponent = styled(Box)({
         flexDirection: 'column',
         justifyContent: 'center',
         '& > p' : {
+            paddingTop: 80,
             fontSize : 56,
             lineHeight: 1.25,
             letterSpacing: -1,
@@ -30,6 +33,7 @@ const BoxComponent = styled(Box)({
 
 
 const Home = () => {
+    const navigate = useNavigate();
     const homePageImage = "https://images.ctfassets.net/pdf29us7flmy/5r34jiS1YfJuoRzqp3XH6y/6fba6547e16cd0ad08ae28dad306015d/Screen_Shot_2023-01-11_at_9.21.31_AM.png?w=720&q=100&fm=avif";
     return (
         <div>
@@ -37,7 +41,7 @@ const Home = () => {
             <BoxComponent>
                 <Box>
                     <Typography>Let's hire your next<br/> great candidate. <em>Fast.</em></Typography>
-                    <Button variant="contained">Post a free job*</Button>
+                    <Button variant="contained" onClick = {() => navigate(routePath.create)}>Post a free job*</Button>
                 </Box>
                 <Box>
                     <img src={homePageImage} style={{ width:600 }} alt="Home"/>

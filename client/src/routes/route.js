@@ -1,4 +1,5 @@
 export const routePath = {
     home   : "/",
-    create : "/create"
+    create : "/create",
+    posts  : "/posts"
 }

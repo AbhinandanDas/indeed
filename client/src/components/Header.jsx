@@ -1,8 +1,15 @@
 import { AppBar, Toolbar, styled} from '@mui/material'
+import { Link } from 'react-router-dom';
+import { routePath } from '../routes/route';
 
 const StyledAppBar = styled(AppBar) ({
     background: '#2d2d2d',
     height : 64,
+    '& > div > *' : {
+        textDecoration: 'none',
+        color: 'inherit',
+        marginRight: 20
+    }
 })
 
 const Header = () => {
@@ -10,9 +17,11 @@ const Header = () => {
     return(
         <StyledAppBar>
             <Toolbar>
+                <Link to = {routePath.home}>
                 <img src = {indeedLogo} style={{height:60, width:100, marginBottom : 8}} alt="Logo"/>
-                Post a Job
-                Find Jobs
+                </Link>    
+                <Link to = {routePath.create}>Post a Job</Link>
+                <Link to = {routePath.posts}>Find Jobs</Link>
             </Toolbar>
         </StyledAppBar>
     )
