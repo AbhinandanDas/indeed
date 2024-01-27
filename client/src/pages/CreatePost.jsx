@@ -3,6 +3,8 @@ import { Box,Typography, styled, TextField,Button } from "@mui/material";
 import Dropdown from "../components/Dropdown.jsx";
 import { useState } from "react";
 import { savePost } from "../services/api.js";
+import { useNavigate } from "react-router-dom";
+import { routePath } from "../routes/route.js";
 
 const Component = styled(Box)({
     padding: '80px 200px',
@@ -58,6 +60,7 @@ const options = {
 
 const CreatePost = () => {
     const [data,setData] = useState(defaultObj);
+    const navigate = useNavigate();
     const image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH3zkKYlIHjjoQrE4e-a5xiJIaK0reWlcDhewsx8rjV87d8M82";
 
     const handleChange = (e) => {
@@ -66,6 +69,7 @@ const CreatePost = () => {
 
     const saveJob = async () => {
         await savePost(data);
+        navigate(routePath.posts);
     }
     return(
         <>
