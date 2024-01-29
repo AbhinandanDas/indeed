@@ -6,6 +6,8 @@ import com.indeed.server.model.PostModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService{
 
@@ -24,5 +26,10 @@ public class PostServiceImpl implements PostService{
         postModel.setExperience(postDTO.getExperience());
 
         return postDao.save(postModel);
+    }
+
+    @Override
+    public List<PostModel> getAllPosts() {
+        return postDao.findAll();
     }
 }
